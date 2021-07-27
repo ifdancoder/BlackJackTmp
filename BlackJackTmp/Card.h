@@ -1,4 +1,5 @@
 #include <iostream>
+
 #ifndef __CARD_H__
 #define __CARD_H__
 
