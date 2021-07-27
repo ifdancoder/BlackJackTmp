@@ -37,8 +37,7 @@ std::ostream& operator<<(std::ostream& otp, const GenericPlayer& gp) {
             std::cout << std::endl;
         }
     }
-    else
-    {
+    else {
         otp << "<empty>" << std::endl;
     }
     return otp;
