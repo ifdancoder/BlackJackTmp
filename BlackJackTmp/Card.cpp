@@ -24,14 +24,11 @@ int Card::GetValue() const {
     return cardPos * (cardRank > 10 ? 10 : cardRank);
 }
 
-std::ostream& operator<<(std::ostream& otp, const Card& card)
-{
-    if (card.cardPos)
-    {
+std::ostream& operator<<(std::ostream& otp, const Card& card) {
+    if (card.cardPos) {
         otp << "********\n* " << card.ranks[card.cardRank] << (card.ranks[card.cardRank].size() > 1 ? " " : "  ") << card.suits[card.cardSuit] << " *\n********\n";
     }
-    else
-    {
+    else {
         otp << "********\n********\n********\n";
     }
     return otp;

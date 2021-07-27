@@ -13,7 +13,7 @@ public:
     void Clear();
     int GetTotal() const;
 protected:
-    vector<Card*> cardsArr;
+    std::vector<Card*> cardsArr;
 };
 
 #endif
