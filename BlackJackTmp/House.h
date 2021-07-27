@@ -1,7 +1,7 @@
 #include "GenericPlayer.h"
 
-#ifndef __PLAYER_H__
-#define __PLAYER_H__
+#ifndef __HOUSE_H__
+#define __HOUSE_H__
 
 class House : public GenericPlayer
 {
