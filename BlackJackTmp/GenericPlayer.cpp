@@ -1,8 +1,10 @@
 #include "GenericPlayer.h"
 
 GenericPlayer::GenericPlayer(const std::string& const name = "") : name(name) {
+
 }
 GenericPlayer::~GenericPlayer() {
+
 }
 bool GenericPlayer::isBoosted() const {
     return GetTotal() > 21;
