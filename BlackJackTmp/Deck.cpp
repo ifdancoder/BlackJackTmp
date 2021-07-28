@@ -1,5 +1,7 @@
-#include "Deck.h"
 #include <algorithm>
+#include <random>
+#include <chrono>   
+#include "Deck.h"
 
 Deck::Deck() {
     cardsArr.reserve(52);
@@ -14,13 +16,14 @@ void Deck::Populate() {
     Clear();
     for (int s = Card::SPADES; s <= Card::DIAMONDS; s++) {
         for (int r = Card::ACE; r <= Card::KING; ++r) {
-            Add(new Card(static_cast<Card::rnk>(r), static_cast<Card::suit>(s)));
+            Add(new Card(static_cast<Card::rnk>(r), static_cast<Card::suit>(s), 1));
         }
     }
 }
 
 void Deck::Shuffle() {
-    std::random_shuffle(cardsArr.begin(), cardsArr.end());
+    std::default_random_engine e(std::chrono::system_clock::now().time_since_epoch().count());
+    std::shuffle(std::begin(cardsArr), std::end(cardsArr), e);
 }
 
 void Deck::Deal(Hand& aHand) {

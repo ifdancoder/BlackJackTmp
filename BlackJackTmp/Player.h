@@ -5,12 +5,16 @@
 
 class Player : public GenericPlayer {
 public:
-    Player(const std::string& name);
+    Player(const std::string& name="", long long total = 500);
+    bool setBet();
     virtual ~Player();
     virtual bool IsHitting() const;
-    void Win() const;
+    long long getBet() const;
+    void Win();
     void Lose() const;
-    void Push() const;
+    void Push();
+protected:
+    long long bet;
 };
 
 #endif

@@ -5,12 +5,12 @@
 #ifndef __GAME_H__
 #define __GAME_H__
 
-class Game
-{
+class Game {
 public:
     Game(const std::vector<std::string>& names);
     ~Game();
     void Play();
+    std::vector<Player>& getPlayers();
 private:
     Deck deck;
     House house;

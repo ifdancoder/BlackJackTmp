@@ -10,7 +10,7 @@ public:
     std::string ranks[14] = { "Error", "A", "2", "3", "4", "5", "6", "7", "8", "9","10", "J", "Q", "K" };
     char suits[4] = { 6, 3, 5, 4 };
 
-    Card(rnk rk, suit st, bool ps);
+    Card(rnk rk = ACE, suit st = SPADES, bool ps = true);
     bool getCardPos() const;
     suit getCardSuit() const;
     rnk getCardRank() const;

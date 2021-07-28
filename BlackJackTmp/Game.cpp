@@ -1,12 +1,9 @@
-#include <cstdlib>
-#include <ctime>
 #include "Game.h"
 
 Game::Game(const std::vector<std::string>& names) {
     for (int i = 0; i < names.size(); i++) {
         players.push_back(Player(names[i]));
     }
-    srand(static_cast<unsigned int>(time(0)));
     deck.Populate();
 }
 
@@ -43,9 +40,11 @@ void Game::Play() {
         for (int i = 0; i < players.size(); i++) {
             if (!(players[i].IsBusted())) {
                 if (players[i].GetTotal() > house.GetTotal()) {
+                    house.setTotal(house.getTotal() - players[i].getBet());
                     players[i].Win();
                 }
                 else if (players[i].GetTotal() < house.GetTotal()) {
+                    house.setTotal(house.getTotal() + players[i].getBet());
                     players[i].Lose();
                 }
                 else {
@@ -58,4 +57,8 @@ void Game::Play() {
         players[i].Clear();
     }
     house.Clear();
+}
+
+std::vector<Player>& Game::getPlayers() {
+    return players;
 }

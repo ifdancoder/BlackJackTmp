@@ -1,6 +1,6 @@
 #include "Card.h"
 
-Card::Card(rnk rk = ACE, suit st = SPADES, bool ps = true) : cardRank(rk), cardSuit(st), cardPos(ps) {
+Card::Card(rnk rk, suit st, bool ps) : cardRank(rk), cardSuit(st), cardPos(ps) {
 
 }
 

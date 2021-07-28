@@ -1,6 +1,6 @@
 #include "House.h"
 
-House::House(const std::string& name = "House") : GenericPlayer(name) {
+House::House(const std::string& name, long long total) : GenericPlayer(name, total) {
 
 }
 
@@ -19,4 +19,8 @@ void House::FlipFirstCard() {
     else {
         std::cout << "No card to flip" << std::endl;
     }
+}
+
+void House::setTotal(long long newtotal) {
+    total = newtotal;
 }

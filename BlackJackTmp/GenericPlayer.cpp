@@ -1,6 +1,6 @@
 #include "GenericPlayer.h"
 
-GenericPlayer::GenericPlayer(const std::string& const name = "") : name(name) {
+GenericPlayer::GenericPlayer(const std::string& const name, long long total) : name(name), total(total) {
 
 }
 
@@ -16,8 +16,12 @@ void GenericPlayer::Bust() const {
     std::cout << name << " busts" << std::endl;
 }
 
+std::string GenericPlayer::getName() {
+    return name;
+}
+
 std::ostream& operator<<(std::ostream& otp, const GenericPlayer& gp) {
-    otp << gp.name << " (Total is " << gp.GetTotal() << "):\n";
+    otp << gp.name << ": " << gp.getTotal() << '$' << std::endl << "Total is " << gp.GetTotal() << ":\n";
     if (gp.cardsArr.size()) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < gp.cardsArr.size(); j++) {
@@ -45,4 +49,8 @@ std::ostream& operator<<(std::ostream& otp, const GenericPlayer& gp) {
         otp << "<empty>" << std::endl;
     }
     return otp;
+}
+
+long long GenericPlayer::getTotal() const {
+    return total;
 }
