@@ -1,6 +1,5 @@
+#include <ctime>
 #include <algorithm>
-#include <random>
-#include <chrono>   
 #include "Deck.h"
 
 Deck::Deck() {
@@ -19,11 +18,12 @@ void Deck::Populate() {
             Add(new Card(static_cast<Card::rnk>(r), static_cast<Card::suit>(s), 1));
         }
     }
+    Shuffle();
 }
 
 void Deck::Shuffle() {
-    std::default_random_engine e(std::chrono::system_clock::now().time_since_epoch().count());
-    std::shuffle(std::begin(cardsArr), std::end(cardsArr), e);
+    srand(time(NULL));
+    std::random_shuffle(std::begin(cardsArr), std::end(cardsArr));
 }
 
 void Deck::Deal(Hand& aHand) {
