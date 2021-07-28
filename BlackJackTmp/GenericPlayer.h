@@ -8,7 +8,7 @@ public:
     GenericPlayer(const std::string& const name);
     virtual ~GenericPlayer();
     virtual bool IsHitting() const = 0;
-    bool isBoosted() const;
+    bool IsBusted() const;
     void Bust() const;
     friend std::ostream& operator<<(std::ostream& otp, const GenericPlayer& gp);
 protected:

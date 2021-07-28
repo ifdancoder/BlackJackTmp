@@ -8,7 +8,7 @@ GenericPlayer::~GenericPlayer() {
 
 }
 
-bool GenericPlayer::isBoosted() const {
+bool GenericPlayer::IsBusted() const {
     return GetTotal() > 21;
 }
 
