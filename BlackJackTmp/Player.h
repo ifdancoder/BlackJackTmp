@@ -3,8 +3,7 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 
-class Player : public GenericPlayer
-{
+class Player : public GenericPlayer {
 public:
     Player(const std::string& name);
     virtual ~Player();

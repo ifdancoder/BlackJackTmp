@@ -3,15 +3,19 @@
 GenericPlayer::GenericPlayer(const std::string& const name = "") : name(name) {
 
 }
+
 GenericPlayer::~GenericPlayer() {
 
 }
+
 bool GenericPlayer::isBoosted() const {
     return GetTotal() > 21;
 }
+
 void GenericPlayer::Bust() const {
     std::cout << name << " busts" << std::endl;
 }
+
 std::ostream& operator<<(std::ostream& otp, const GenericPlayer& gp) {
     otp << gp.name << " (Total is " << gp.GetTotal() << "):\n";
     if (gp.cardsArr.size()) {
