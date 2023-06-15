@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game(const std::vector<std::string>& names) {
+Game::Game(const std::vector<std::wstring>& names) {
     for (int i = 0; i < names.size(); i++) {
         players.push_back(Player(names[i]));
     }
@@ -20,14 +20,14 @@ void Game::Play() {
     }
     house.FlipFirstCard();
     for (int i = 0; i < players.size(); i++) {
-        std::cout << players[i] << std::endl;
+        std::wcout << players[i] << std::endl;
     }
-    std::cout << house << std::endl;
+    std::wcout << house << std::endl;
     for (int i = 0; i < players.size(); i++) {
         deck.AdditionalCards(players[i]);
     }
     house.FlipFirstCard();
-    std::cout << std::endl << house;
+    std::wcout << std::endl << house;
     deck.AdditionalCards(house);
     if (house.IsBusted()) {
         for (int i = 0; i < players.size(); i++) {

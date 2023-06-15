@@ -7,7 +7,7 @@
 
 class Game {
 public:
-    Game(const std::vector<std::string>& names);
+    Game(const std::vector<std::wstring>& names);
     ~Game();
     void Play();
     std::vector<Player>& getPlayers();

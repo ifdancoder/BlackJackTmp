@@ -6,7 +6,7 @@
 
 class House : public GenericPlayer {
 public:
-    House(const std::string& name="House", long long total=std::numeric_limits<long long int>::max());
+    House(const std::wstring& name=L"House", long long total=std::numeric_limits<long long int>::max());
     virtual ~House();
     bool IsHitting() const;
     void setTotal(long long newtotal);

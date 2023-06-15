@@ -1,6 +1,6 @@
 #include "GenericPlayer.h"
 
-GenericPlayer::GenericPlayer(const std::string& const name, long long total) : name(name), total(total) {
+GenericPlayer::GenericPlayer(const std::wstring& const name, long long total) : name(name), total(total) {
 
 }
 
@@ -13,40 +13,24 @@ bool GenericPlayer::IsBusted() const {
 }
 
 void GenericPlayer::Bust() const {
-    std::cout << name << " busts" << std::endl;
+    std::wcout << name << L" busts" << std::endl;
 }
 
-std::string GenericPlayer::getName() {
+std::wstring GenericPlayer::getName() {
     return name;
 }
 
-std::ostream& operator<<(std::ostream& otp, const GenericPlayer& gp) {
-    otp << gp.name << ": " << gp.getTotal() << '$' << std::endl << "Total is " << gp.GetTotal() << ":\n";
+std::wostream& operator<<(std::wostream& otp, const GenericPlayer& gp) {
+    otp << gp.name << L": " << gp.getTotal() << L'$' << std::endl << L"Total is " << gp.GetTotal() << L":\n";
     if (gp.cardsArr.size()) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < gp.cardsArr.size(); j++) {
-                if (gp.cardsArr[j]->getCardPos()) {
-                    switch (i) {
-                    case 0:
-                        std::cout << "******** ";
-                        break;
-                    case 1:
-                        std::cout << "* " << gp.cardsArr[i]->ranks[gp.cardsArr[j]->getCardRank()] << (gp.cardsArr[j]->ranks[gp.cardsArr[j]->getCardRank()].size() > 1 ? " " : "  ") << gp.cardsArr[i]->suits[gp.cardsArr[j]->getCardSuit()] << " * ";
-                        break;
-                    case 2:
-                        std::cout << "******** ";
-                        break;
-                    }
-                }
-                else {
-                    std::cout << "******** ";
-                }
-            }
-            std::cout << std::endl;
+        for (int i = 0; i < gp.cardsArr.size(); i++) {
+            otp << std::endl;
+            std::wcout << *gp.cardsArr[i];
         }
+        otp << std::endl;
     }
     else {
-        otp << "<empty>" << std::endl;
+        otp << L"<empty>" << std::endl;
     }
     return otp;
 }

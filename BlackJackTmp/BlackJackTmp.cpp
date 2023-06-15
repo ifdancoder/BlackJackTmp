@@ -1,9 +1,15 @@
 ﻿#include <iostream>
 #include "Game.h"
+#include <locale>
+#include <cstdlib>
 
 using namespace std;
 
 int main() {
+    system("chcp 65001");
+    std::locale::global(std::locale("ru_RU.utf8"));
+    system("cls");
+
     cout << "Welcome to Blackjack!\n\n";
 
     int numPlayers = 0;
@@ -12,11 +18,11 @@ int main() {
         cin >> numPlayers;
     }
 
-    vector<string> names;
-    string name;
+    vector<wstring> names;
+    wstring name;
     for (int i = 0; i < numPlayers; ++i) {
-        cout << "Enter player name: ";
-        cin >> name;
+        wcout << "Enter player name: ";
+        wcin >> name;
         names.push_back(name);
     }
     cout << endl;
@@ -27,7 +33,7 @@ int main() {
         system("cls");
         for (int i = 0; i < gm.getPlayers().size(); i++) {
             if (!(gm.getPlayers()[i].setBet())) {
-                std::cout << gm.getPlayers()[i].getName() << " can't play anymore" << std::endl;
+                std::wcout << gm.getPlayers()[i].getName() << L" can't play anymore" << std::endl;
                 gm.getPlayers().erase(gm.getPlayers().begin() + i);
                 i--;
             }
@@ -38,7 +44,7 @@ int main() {
             cin >> again;
         }
         else {
-            std::cout << "The game cannot continue" << std::endl;
+            std::wcout << "The game cannot continue" << std::endl;
             break;
         }
     }

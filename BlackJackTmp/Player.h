@@ -5,7 +5,7 @@
 
 class Player : public GenericPlayer {
 public:
-    Player(const std::string& name="", long long total = 500);
+    Player(const std::wstring& name=L"", long long total = 500);
     bool setBet();
     virtual ~Player();
     virtual bool IsHitting() const;

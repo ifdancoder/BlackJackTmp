@@ -32,15 +32,15 @@ void Deck::Deal(Hand& aHand) {
         cardsArr.pop_back();
     }
     else {
-        std::cout << "Out of cards. Unable to deal.";
+        std::wcout << "Out of cards. Unable to deal.";
     }
 }
 
 void Deck::AdditionalCards(GenericPlayer& gp) {
-    std::cout << std::endl;
+    std::wcout << std::endl;
     while (!(gp.IsBusted()) && gp.IsHitting()) {
         Deal(gp);
-        std::cout << gp << std::endl;
+        std::wcout << gp << std::endl;
         if (gp.IsBusted()) {
             gp.Bust();
         }
